@@ -18,7 +18,7 @@ export default class CommentForm extends Component {
     return(
       <form className="commentForm" onSubmit={this.handleSubmit}>
         <input type="text" placeholder="やること" ref="text" />
-        <button type="submit" value="Post">追加</button>
+        <button type="submit" value="Submit">追加</button>
       </form>
     );
   }

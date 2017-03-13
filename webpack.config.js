@@ -8,7 +8,7 @@ module.exports = {
     filename: 'bundle.js',
   },
   devServer: {
-    contentBase: 'out',
+    contentBase: './',
     port: 3333,
   },
   devtool: 'source-map',
@@ -49,7 +49,7 @@ module.exports = {
     ],
   },
   resolve: {
-    modulesDirectories: ['node_modules', './src', './src/styles/'],
+    modulesDirectories: ['node_modules', './src', './src/styles/', './'],
     extensions: ['', '.js', '.styl', ',html', 'json']
   },
 };

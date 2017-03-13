@@ -1,4 +1,3 @@
-import Marked from 'marked';
 import React, {Component} from 'react'
 
 export default class Comment extends Component {
@@ -8,7 +7,7 @@ export default class Comment extends Component {
   }
 
   handleDelete(){
-    this.props.onTodoDelate(this.props.data.id)
+    this.props.onCommentDelate(this.props.comment.id)
   }
 
   render() {
