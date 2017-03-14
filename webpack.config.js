@@ -12,11 +12,8 @@ module.exports = {
     contentBase: './',
     port: 3333,
   },
-  devtool: 'source-map',
+  devtool: 'false',
   plugins: [
-    new webpack.ResolverPlugin(
-      new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('.bower.json', ['main'])
-    ),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
