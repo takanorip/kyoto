@@ -3,7 +3,6 @@ var webpack = require('webpack');
 module.exports = {
   entry: {
     js: './src/index.js',
-    html: './src/index.html',
   },
   output: {
     path: `${__dirname}/out`,
@@ -15,17 +14,13 @@ module.exports = {
   },
   devtool: 'source-map',
   plugins: [
+    new webpack.ResolverPlugin(
+      new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('.bower.json', ['main'])
+    ),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify('production')
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        warnings: false
-      }
-    })
+    new webpack.optimize.AggressiveMergingPlugin()
   ],
   module: {
     loaders: [

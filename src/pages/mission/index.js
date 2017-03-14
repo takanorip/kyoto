@@ -4,7 +4,6 @@ import Footer from '../parts/footer.js';
 import CommentForm from './CommentForm.js';
 import Comment from './Comment.js';
 import axios from 'axios';
-// import todos from './todos.json'
 
 export default class Mission extends Component {
 
@@ -13,37 +12,14 @@ export default class Mission extends Component {
     this.state = {
       data: []
     };
-    // this.loadCommentsFromServer = this.loadCommentsFromServer.bind(this);
     this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
     this.handleCommentDelete = this.handleCommentDelete.bind(this);
   }
-
-  // loadCommentsFromServer() {
-  //   axios.get('./todos.json')
-  //   .then(res => {
-  //     this.setState({ data: res.data });
-  //   })
-  //   .catch(res => {
-  //     console.log(res)
-  //   });
-  // }
 
   handleCommentSubmit(comment) {
     comment.id = new Date();
     const newComments = this.state.data.concat(comment);
     this.setState({data: newComments});
-
-    // axios.post('./todos.json', {
-    //   id: comment.id,
-    //   text: comment.text
-    // })
-    // .then(res => {
-    //   this.setState({data: res.data});
-    //   console.log(res)
-    // })
-    // .catch(res => {
-    //   console.log(res)
-    // });
   }
 
   handleCommentDelete(id) {
@@ -52,11 +28,6 @@ export default class Mission extends Component {
         return comment.id !== id
       })
     });
-  }
-
-  componentDidMount() {
-    this.loadCommentsFromServer();
-    setInterval(this.loadCommentsFromServer(), 2000);
   }
 
   render() {
